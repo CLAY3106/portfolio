@@ -7,6 +7,9 @@ export default function App() {
         <header className="header">
           <div>
             <div className="name">Son Le</div>
+            <div className="muted" style={{ marginTop: "6px" }}>
+              Computer Science & Mathematics Student at Kalamazoo College
+            </div>
             <div className="tagline">SWE • Data Engineering • AI/ML</div>
           </div>
 
@@ -32,6 +35,16 @@ export default function App() {
         </header>
 
         <section className="hero">
+          <img
+            src="/headshot.jpg"
+            alt="Son Le"
+            style={{
+              width: "120px",
+              borderRadius: "50%",
+              marginTop: "20px",
+              border: "2px solid #1f2937"
+            }}
+          />
           <h1>Building reliable data systems and ML models end-to-end.</h1>
           <p>
             Batch ETL (Airflow/Spark/PostgreSQL), internal API + FTP ingestion, and forecasting models
@@ -47,6 +60,46 @@ export default function App() {
             <a className="btnGhost" href="#contact">
               Contact
             </a>
+          </div>
+        </section>
+
+        <section className="section" id="bio">
+          <h2>Bio</h2>
+          <div className="card">
+            <p className="muted">
+              I'm Son, an upcoming sophomore at Kalamazoo College majoring in Computer Science and Mathematics.
+              I'm particularly interested in data engineering, software development, and building systems
+              that turn data into meaningful solutions.
+            </p>
+            <p className="muted" style={{ marginTop: "16px" }}>
+              Outside academics, I enjoy playing pool and soccer — the real football.
+              If the debate ever comes up, it's Messi over Ronaldo.
+            </p>
+            <p className="muted" style={{ marginTop: "16px" }}>
+              I value meeting new people, exchanging ideas, and learning from different perspectives.
+              I'm currently seeking internship opportunities in data engineering, AI engineering,
+              or software engineering.
+            </p>
+          </div>
+        </section>
+        <section className="section" id="beyond">
+          <h2>Beyond Code</h2>
+          <div className="card">
+            <ul className="list">
+              <li>
+                ⚽ Football enthusiast — I enjoy playing and following matches (especially Barcelona and Messi),
+                which inspired my interest in analyzing match data and forecasting outcomes.
+              </li>
+              <li>
+                🇻🇳 From Vietnam — adapting across cultures shaped how I approach communication and teamwork.
+              </li>
+              <li>
+                📚 Interested in probability, strategy, and long-term systems thinking.
+              </li>
+              <li>
+                🏋️ Training discipline — I value consistency, incremental improvement, and measurable progress.
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -144,7 +197,9 @@ export default function App() {
             </div>
           </div>
         </section>
-
+        <div style={{ marginTop: "60px", textAlign: "center" }} className="muted">
+          Open to internship opportunities in Data Engineering, AI Engineering, and Software Engineering.
+        </div>
         <footer className="footer">© {new Date().getFullYear()} Son Le</footer>
       </div>
     </div>
