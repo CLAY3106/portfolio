@@ -183,17 +183,9 @@ export default function App() {
           <h2>Contact</h2>
           <div className="card">
             <div className="contactRow">
-              <a href="mailto:Son.LeDinhTruong24@kzoo.edu">Son.LeDinhTruong24@kzoo.edu</a>
-              <a href="https://github.com/CLAY3106" target="_blank" rel="noreferrer">
-                github.com/CLAY3106
-              </a>
-              <a
-                href="https://www.linkedin.com/in/son-le-3b3313268/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                linkedin.com/in/son-le-3b3313268
-              </a>
+              <a href="mailto:Son.LeDinhTruong24@kzoo.edu">Email</a>
+              <a href="https://github.com/CLAY3106" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/son-le-3b3313268/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
           </div>
         </section>
