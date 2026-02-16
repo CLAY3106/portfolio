@@ -56,7 +56,7 @@ export default function App() {
                 "Ingestion + validation workflow to ensure consistent transformations",
               ]}
               links={[
-                { label: "Repo", href: "https://github.com/CLAY3106/football-pipline" },
+                { label: "Repo", href: "https://github.com/CLAY3106/football-pipeline" },
               ]}
             />
 
