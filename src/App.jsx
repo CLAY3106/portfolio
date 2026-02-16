@@ -15,6 +15,9 @@ export default function App() {
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer">
+              Resume
+            </a>
             <a href="https://github.com/CLAY3106" target="_blank" rel="noreferrer">
               GitHub
             </a>
