@@ -41,6 +41,9 @@ export default function App() {
             <a className="btnPrimary" href="#projects">
               View Projects
             </a>
+            <a className="btnGhost" href="/resume.pdf" target="_blank" rel="noreferrer">
+              Resume
+            </a>
             <a className="btnGhost" href="#contact">
               Contact
             </a>
