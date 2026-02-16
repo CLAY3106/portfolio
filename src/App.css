@@ -60,8 +60,16 @@ a:hover {
 }
 
 .hero {
-  margin-top: 80px;
-  max-width: 700px;
+  text-align: center;
+  margin: 100px auto 0 auto;
+  max-width: 800px;
+}
+
+.hero div {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
 }
 
 .hero h1 {
