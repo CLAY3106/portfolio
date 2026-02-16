@@ -124,7 +124,7 @@ export default function App() {
           <h2>Contact</h2>
           <div className="card">
             <div className="contactRow">
-              <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+              <a href="mailto:Son.LeDinhTruong24@kzoo.edu">Son.LeDinhTruong24@kzoo.edu</a>
               <a href="https://github.com/CLAY3106" target="_blank" rel="noreferrer">
                 github.com/CLAY3106
               </a>
