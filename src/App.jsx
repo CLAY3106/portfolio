@@ -45,7 +45,7 @@ export default function App() {
               border: "2px solid #1f2937"
             }}
           />
-          <h1>Building reliable data systems and ML models end-to-end.</h1>
+          <h1>Designing reliable data pipelines and intelligent systems.</h1>
           <p>
             Batch ETL (Airflow/Spark/PostgreSQL), internal API + FTP ingestion, and forecasting models
             in Python.
