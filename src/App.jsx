@@ -37,7 +37,7 @@ export default function App() {
             Batch ETL (Airflow/Spark/PostgreSQL), internal API + FTP ingestion, and forecasting models
             in Python.
           </p>
-          <div className="btnRow">
+          <div style={{ marginTop: 30 }}>
             <a className="btnPrimary" href="#projects">
               View Projects
             </a>
