@@ -617,6 +617,11 @@ body {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);  /* add this */
+}
+
+.experience-card:last-child {
+  margin-bottom: 0;
 }
 
 .experience-header {
