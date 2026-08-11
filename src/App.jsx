@@ -45,6 +45,7 @@ export default function App() {
               <div className="tech-stack">
                 <span className="tech-badge">Python</span>
                 <span className="tech-badge">Java</span>
+                <span className="tech-badge">TypeScript</span>
                 <span className="tech-badge">FastAPI</span>
                 <span className="tech-badge">Next.js</span>
                 <span className="tech-badge">PostgreSQL</span>
@@ -52,7 +53,7 @@ export default function App() {
               </div>
               <div className="cta-group">
                 <a href="#projects" className="btn-primary">View My Work</a>
-                <a href="mailto:Son.LeDinhTruong24@kzoo.edu" className="btn-secondary">Get in Touch</a>
+                <a href="mailto:Son.LeDinhTruong316@outlook.com" className="btn-secondary">Get in Touch</a>
               </div>
             </div>
             <div className="hero-visual">
@@ -143,6 +144,18 @@ export default function App() {
             />
 
             <ProjectCard
+              title="World Cup 2026 Prediction System"
+              description="Probabilistic forecasting pipeline in Python cross-validating 3 classification models on historical World Cup match data to simulate bracket outcomes."
+              tech={["Python", "scikit-learn", "Pandas"]}
+              highlights={[
+                "Correctly predicted 2 of 4 semifinalists including the eventual champion (Spain)",
+                "Cross-validated 3 classification models on historical match data",
+                "Simulated bracket outcomes with probabilistic forecasting"
+              ]}
+              accent="purple"
+            />
+
+            <ProjectCard
               title="football-pipeline"
               description="Containerized data pipeline for ingesting and storing structured football match data with automated validation"
               tech={["Python", "Docker", "PostgreSQL"]}
@@ -161,6 +174,52 @@ export default function App() {
           <div className="section-header">
             <span className="section-label">Professional Experience</span>
             <h2 className="section-title">Where I've Applied My Skills</h2>
+          </div>
+
+          <div className="experience-card">
+            <div className="experience-header">
+              <div>
+                <h3 className="experience-title">Software Engineering Intern, M1 Platform</h3>
+                <div className="experience-company">FPT IS Company Limited</div>
+              </div>
+              <div className="experience-date">Jul 2026 – Present</div>
+            </div>
+
+            <div className="impact-metrics">
+              <div className="metric">
+                <div className="metric-value">9</div>
+                <div className="metric-label">Repo GitLab polyrepo</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">20</div>
+                <div className="metric-label">Acceptance criteria authored</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">15</div>
+                <div className="metric-label">Engineer team supported</div>
+              </div>
+            </div>
+
+            <ul className="achievement-list">
+              <li>
+                <span className="achievement-bullet">→</span>
+                Reviewing agent-generated backend code across a 9-repo GitLab polyrepo using Claude Code 
+                as the primary development agent, root-causing failures and validating against acceptance 
+                criteria on a Docker Compose environment before merge
+              </li>
+              <li>
+                <span className="achievement-bullet">→</span>
+                Designing use cases via the ICE methodology (Intent, Context, Expectations), authoring 
+                and verifying 20 Given/When/Then acceptance criteria with measurable security, performance, 
+                and data limits that gate the build pipeline for a 15-engineer team
+              </li>
+              <li>
+                <span className="achievement-bullet">→</span>
+                Implementing a security and compliance coverage review auditing the platform against 
+                ISO 27001, SOC 2 Type II, and OWASP API Top 10, mapping each control to satisfaction 
+                status and routing gaps to remediation paths
+              </li>
+            </ul>
           </div>
 
           <div className="experience-card">
@@ -310,7 +369,7 @@ export default function App() {
             />
             <SkillCategory
               category="Machine Learning"
-              skills={["scikit-learn", "YOLOv8", "OpenCV", "Pandas", "Feature Engineering"]}
+              skills={["scikit-learn", "Pandas", "Feature Engineering", "Cross-Validation"]}
               color="orange"
             />
             <SkillCategory
@@ -329,7 +388,7 @@ export default function App() {
               Let's connect!
             </p>
             <div className="contact-links">
-              <a href="mailto:Son.LeDinhTruong24@kzoo.edu" className="contact-btn">
+              <a href="mailto:Son.LeDinhTruong316@outlook.com" className="contact-btn">
                 <span className="contact-icon">✉️</span>
                 Email Me
               </a>
