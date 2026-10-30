@@ -221,7 +221,17 @@ export default function App() {
 
       <main className="page">
         <header id="top" className="hero">
-          <h1 className="hero-name">Son Le</h1>
+          <div className="hero-top">
+            <h1 className="hero-name">Son Le</h1>
+            <img
+              className="hero-photo"
+              src="/headshot.jpg"
+              alt="Son Le"
+              width="800"
+              height="800"
+              decoding="async"
+            />
+          </div>
           <p className="hero-meta">
             Software engineering student at Kalamazoo College, looking for a
             Summer 2027 internship.

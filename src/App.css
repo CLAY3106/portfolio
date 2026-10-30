@@ -39,6 +39,23 @@
   padding-top: clamp(3rem, 13vh, 7.5rem);
 }
 
+.hero-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.hero-photo {
+  flex: 0 0 auto;
+  width: clamp(6.5rem, 18vw, 11rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+}
+
 .hero-name {
   font-size: clamp(4.5rem, 19vw, 12rem);
   font-weight: 850;
