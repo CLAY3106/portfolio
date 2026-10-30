@@ -21,6 +21,8 @@ export default function App() {
             <a href="#about" className="nav-link">About</a>
             <a href="#projects" className="nav-link">Projects</a>
             <a href="#experience" className="nav-link">Experience</a>
+            <a href="#skills" className="nav-link">Skills</a>
+            <a href="#contact" className="nav-link">Contact</a>
             <a href="https://github.com/CLAY3106" target="_blank" rel="noreferrer" className="nav-link-external">
               GitHub ↗
             </a>
@@ -84,7 +86,9 @@ export default function App() {
               <p>
                 I'm Son, a junior at Kalamazoo College majoring in Computer Science 
                 and Mathematics. I enjoy building software that works at scale, from 
-                full-stack web apps to production data pipelines.
+                full-stack web apps to production data pipelines. I also do computer vision
+                research on defect detection, where most of my time goes into making sure
+                the results are actually valid.
               </p>
               <p>
                 Currently seeking Summer 2027 internships in software engineering 
@@ -132,11 +136,12 @@ export default function App() {
           <div className="projects-grid">
             <ProjectCard
               title="LifeOS"
-              description="Full-stack AI-powered productivity app built in 7 days with FastAPI, Next.js 14, and PostgreSQL. Features JWT auth, CI/CD, and an AI context aggregation service."
-              tech={["FastAPI", "Next.js", "PostgreSQL", "Docker", "AWS", "Claude AI"]}
+              description="Full-stack productivity app spanning academics, job search, workouts, and finance, with a daily AI briefing built on FastAPI, Next.js, and PostgreSQL. Features JWT auth, CI/CD, hybrid RAG retrieval, and a deterministic scoring layer."
+              tech={["FastAPI", "Next.js", "PostgreSQL", "Docker", "AWS", "Claude AI", "RAG"]}
               highlights={[
-                "Cross-domain AI context aggregation with ~600 structured tokens per call",
-                "GitHub Actions CI/CD deployed to Render and Vercel",
+                "Hybrid retrieval: embedding cosine similarity plus PostgreSQL full-text search, merged with Reciprocal Rank Fusion",
+                "Deterministic 0-100 priority scoring runs before the LLM and powers the briefing on its own if Claude is unavailable",
+                "Event-sourced audit trail for job applications; GitHub Actions CI/CD to Render and Vercel",
                 "Solved cross-origin cookie issues with Vercel reverse-proxy rewrites"
               ]}
               link="https://lifeos-lac.vercel.app"
@@ -225,6 +230,53 @@ export default function App() {
           <div className="experience-card">
             <div className="experience-header">
               <div>
+                <h3 className="experience-title">Undergraduate Researcher, Computer Vision</h3>
+                <div className="experience-company">Kalamazoo College, advised by Dr. Tasnim Gharaibeh (Remote)</div>
+              </div>
+              <div className="experience-date">Ongoing</div>
+            </div>
+
+            <div className="impact-metrics">
+              <div className="metric">
+                <div className="metric-value">~990</div>
+                <div className="metric-label">Distinct photos behind 2,230 images</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">98%</div>
+                <div className="metric-label">Defect recall as cascade gate (180/183)</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">2</div>
+                <div className="metric-label">Validity flaws found and fixed</div>
+              </div>
+            </div>
+
+            <ul className="achievement-list">
+              <li>
+                <span className="achievement-bullet">→</span>
+                Building a two-layer YOLO26 cascade for external pipeline defect detection, where a
+                recall-first Layer 1 gate filters likely-healthy images before a second detection layer.
+                Layer 1 catches 180 of 183 defect images and filters 28 of 37 healthy ones (small healthy
+                sample, so treated as preliminary); Layer 2 and end-to-end evaluation are in progress
+              </li>
+              <li>
+                <span className="achievement-bullet">→</span>
+                Discovered the 2,230-image dataset held only about 990 distinct photos, with edited copies
+                leaking across train and test (~70% of test images had a near-copy in training) and inflating
+                mAP@50 from 0.38 to 0.68. Re-split by source photo and report corrected numbers only
+              </li>
+              <li>
+                <span className="achievement-bullet">→</span>
+                Designed adversarial tests (erasing defects, pasting defects onto healthy images) showing an
+                image classifier with 99% recall was recognizing the source dataset, not defects. Dropped it;
+                the box detector passed the same test
+              </li>
+            </ul>
+          </div>
+
+          <div className="experience-card">
+            <div className="experience-header">
+              <div>
                 <h3 className="experience-title">Software Engineering Intern</h3>
                 <div className="experience-company">FPT IS Company Limited</div>
               </div>
@@ -285,8 +337,8 @@ export default function App() {
               <li>
                 <span className="achievement-bullet">→</span>
                 Collaborates with faculty to calibrate rubrics; identifies recurring error patterns 
-                across cohorts and surfaces conceptual gaps to instructors, contributing to in-class 
-                interventions that measurably improve comprehension of core CS concepts
+                across cohorts and surfaces conceptual gaps to instructors, informing in-class
+                interventions on core CS concepts
               </li>
             </ul>
           </div>
@@ -359,7 +411,7 @@ export default function App() {
             />
             <SkillCategory
               category="Web & Backend"
-              skills={["FastAPI", "Next.js", "React", "REST APIs", "SQLAlchemy", "Pydantic"]}
+              skills={["FastAPI", "Next.js", "React", "REST APIs", "SQLAlchemy", "Pydantic", "RAG / Hybrid Retrieval", "JWT Auth"]}
               color="teal"
             />
             <SkillCategory
@@ -371,6 +423,11 @@ export default function App() {
               category="Machine Learning"
               skills={["scikit-learn", "Pandas", "Feature Engineering", "Cross-Validation"]}
               color="orange"
+            />
+            <SkillCategory
+              category="Computer Vision"
+              skills={["YOLO", "Object Detection", "mAP / Precision / Recall", "Dataset Validation", "Google Colab"]}
+              color="teal"
             />
             <SkillCategory
               category="Infrastructure"
@@ -405,7 +462,7 @@ export default function App() {
         </section>
 
         <footer className="footer">
-          <p>© {new Date().getFullYear()} Son Le • Designed & built with care</p>
+          <p>© {new Date().getFullYear()} Son Le</p>
         </footer>
       </div>
     </div>
