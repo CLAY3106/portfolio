@@ -15,6 +15,13 @@
   /* Thin edge so the yellow reaches 3:1 as a UI indicator on light paper. */
   --box-edge: #121b23;
 
+  /* Class colours, one per skill group (all 4:1 or better on this paper). */
+  --c-blue: #2457d6;
+  --c-teal: #0a7f72;
+  --c-purple: #7a3fc4;
+  --c-magenta: #c2185b;
+  --c-green: #3d7d1f;
+
   --font: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   color-scheme: light;
@@ -29,6 +36,12 @@
   --signal: #f5c21b;
   --signal-ink: #121b23;
   --box-edge: transparent;
+
+  --c-blue: #7fa6ff;
+  --c-teal: #3fd0bc;
+  --c-purple: #b794f6;
+  --c-magenta: #ff7aa8;
+  --c-green: #8bd35a;
 
   color-scheme: dark;
 }

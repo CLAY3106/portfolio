@@ -3,8 +3,10 @@ import "./App.css";
 import {
   about,
   experience,
+  groupColor,
   profile,
   projects,
+  skillColor,
   skillGroups,
   topics,
 } from "./data";
@@ -39,7 +41,15 @@ export default function App() {
   const [open, setOpen] = useState(() => new Set(["fpt-m1", "research"]));
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [scan, setScan] = useState(-1);
+  const [scanAll, setScanAll] = useState(false);
   const [toast, setToast] = useState("");
+
+  // "Run detection" lights up every hero phrase and the photo at once.
+  useEffect(() => {
+    if (!scanAll) return undefined;
+    const timer = setTimeout(() => setScanAll(false), 3200);
+    return () => clearTimeout(timer);
+  }, [scanAll]);
 
   useEffect(() => {
     if (!toast) return undefined;
@@ -59,7 +69,7 @@ export default function App() {
   const copyEmail = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(profile.email);
-      showToast("Email address copied");
+      showToast("Email copied. Say hi!");
     } catch {
       showToast(`Copy failed. Email me at ${profile.email}`);
     }
@@ -223,14 +233,19 @@ export default function App() {
         <header id="top" className="hero">
           <div className="hero-top">
             <h1 className="hero-name">Son Le</h1>
-            <img
-              className="hero-photo"
-              src="/headshot.jpg"
-              alt="Son Le"
-              width="800"
-              height="800"
-              decoding="async"
-            />
+            <div className={`hero-figure${scanAll ? " is-scanning" : ""}`}>
+              <img
+                className="hero-photo"
+                src="/headshot.jpg"
+                alt="Son Le"
+                width="800"
+                height="800"
+                decoding="async"
+              />
+              <span className="detect-tag hero-tag" aria-hidden="true">
+                intern candidate
+              </span>
+            </div>
           </div>
           <p className="hero-meta">
             Software engineering student at Kalamazoo College, looking for a
@@ -240,7 +255,7 @@ export default function App() {
             I build{" "}
             <Detect
               k="backend"
-              scanning={scan === 0}
+              scanning={scan === 0 || scanAll}
               filter={filter}
               onPick={() =>
                 applyFilter("topic", "backend", topics.backend, "experience")
@@ -249,7 +264,7 @@ export default function App() {
             and{" "}
             <Detect
               k="data"
-              scanning={scan === 1}
+              scanning={scan === 1 || scanAll}
               filter={filter}
               onPick={() =>
                 applyFilter("topic", "data", topics.data, "experience")
@@ -258,7 +273,7 @@ export default function App() {
             , and I do{" "}
             <Detect
               k="vision"
-              scanning={scan === 2}
+              scanning={scan === 2 || scanAll}
               filter={filter}
               onPick={() =>
                 applyFilter("topic", "vision", topics.vision, "experience")
@@ -267,6 +282,16 @@ export default function App() {
             where I have learned to distrust my own numbers first.
           </p>
           <p className="hero-links">
+            <button
+              type="button"
+              className="link-btn link-btn-accent"
+              onClick={() => {
+                setScan(-1);
+                setScanAll(true);
+              }}
+            >
+              Run detection
+            </button>
             <button type="button" className="link-btn" onClick={copyEmail}>
               Copy email
             </button>
@@ -276,6 +301,9 @@ export default function App() {
             <a className="link-btn" href={profile.linkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
+          </p>
+          <p className="hero-hint">
+            Select a highlighted phrase to filter the page, or press / to search.
           </p>
         </header>
 
@@ -365,7 +393,9 @@ export default function App() {
           <div className="skills">
             {skillGroups.map((group) => (
               <div key={group.name} className="skill-group">
-                <h3 className="skill-group-name">{group.name}</h3>
+                <h3 className={`skill-group-name class-${groupColor[group.name]}`}>
+                  {group.name}
+                </h3>
                 <ul className="skill-list">
                   {group.skills.map((skill) => {
                     const count = countFor("skill", skill);
@@ -376,7 +406,7 @@ export default function App() {
                         {count > 0 ? (
                           <button
                             type="button"
-                            className="skill"
+                            className={`skill class-${groupColor[group.name]}`}
                             aria-pressed={pressed}
                             onClick={() => applyFilter("skill", skill, skill)}
                           >
@@ -458,7 +488,7 @@ export default function App() {
         </section>
 
         <footer className="footer">
-          <p>© {new Date().getFullYear()} Son Le</p>
+          <p>© {new Date().getFullYear()} Son Le. Numbers checked twice.</p>
         </footer>
       </main>
 
@@ -584,7 +614,7 @@ function Chips({ item, filter, onPick }) {
         <li key={tag}>
           <button
             type="button"
-            className="chip"
+            className={`chip class-${skillColor[tag] || "none"}`}
             aria-pressed={filter?.kind === "skill" && filter.value === tag}
             onClick={() => onPick("skill", tag, tag)}
           >
