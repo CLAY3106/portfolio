@@ -264,6 +264,22 @@ export const skillGroups = [
   },
 ];
 
+// Each skill group gets a "class colour", like the box colours in a detection model.
+export const groupColor = {
+  Languages: "blue",
+  "Web and backend": "teal",
+  "Data engineering": "purple",
+  "Machine learning": "magenta",
+  "Computer vision": "signal",
+  Infrastructure: "green",
+};
+
+export const skillColor = Object.fromEntries(
+  skillGroups.flatMap((group) =>
+    group.skills.map((skill) => [skill, groupColor[group.name]]),
+  ),
+);
+
 export const about = [
   "I'm a junior at Kalamazoo College studying Computer Science and Mathematics, originally from Ha Tinh, Vietnam. I like software that holds up at scale, from full-stack apps to production data pipelines, and I check my results before I trust them.",
   "Outside code I follow football analytics (Barcelona, and Messi over Ronaldo) and think about probability and long-term planning.",
