@@ -203,6 +203,14 @@ export default function App() {
 
   const stateFor = (item) =>
     filter ? (isHit(item, filter) ? "yes" : "no") : undefined;
+  // Selecting a row that the filter has collapsed clears the filter and opens it.
+  const rowToggle = (item) =>
+    stateFor(item) === "no"
+      ? () => {
+          clearFilter();
+          setOpen((current) => new Set(current).add(item.id));
+        }
+      : () => toggleOpen(item.id);
   const matches = filter ? allItems.filter((item) => isHit(item, filter)) : [];
 
   return (
@@ -280,7 +288,7 @@ export default function App() {
                 sub={item.org}
                 open={open.has(item.id)}
                 state={stateFor(item)}
-                onToggle={() => toggleOpen(item.id)}
+                onToggle={rowToggle(item)}
               >
                 {item.facts.length > 0 && (
                   <ul className="facts">
@@ -314,7 +322,7 @@ export default function App() {
                 title={item.title}
                 open={open.has(item.id)}
                 state={stateFor(item)}
-                onToggle={() => toggleOpen(item.id)}
+                onToggle={rowToggle(item)}
               >
                 <p className="panel-text">{item.description}</p>
                 <ul className="bullets">
@@ -528,13 +536,15 @@ function Detect({ k, scanning, filter, onPick }) {
 
 function Row({ item, lead, title, sub, open, state, onToggle, children }) {
   const panelId = `${item.id}-panel`;
+  // Rows that don't match the active filter collapse so only their heading shows.
+  const shown = open && state !== "no";
   return (
-    <li id={item.id} className="row" data-open={open} data-match={state}>
+    <li id={item.id} className="row" data-open={shown} data-match={state}>
       <h3 className="row-heading">
         <button
           type="button"
           className={`row-head${lead ? " has-lead" : ""}`}
-          aria-expanded={open}
+          aria-expanded={shown}
           aria-controls={panelId}
           onClick={onToggle}
         >
@@ -549,7 +559,7 @@ function Row({ item, lead, title, sub, open, state, onToggle, children }) {
           </span>
         </button>
       </h3>
-      <div id={panelId} className="row-panel" inert={!open}>
+      <div id={panelId} className="row-panel" inert={!shown}>
         <div className={`row-panel-inner${lead ? " has-lead" : ""}`}>{children}</div>
       </div>
     </li>

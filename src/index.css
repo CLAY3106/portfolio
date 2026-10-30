@@ -12,6 +12,8 @@
   --line: #bcc5cb;
   --signal: #f2b705;
   --signal-ink: #121b23;
+  /* Thin edge so the yellow reaches 3:1 as a UI indicator on light paper. */
+  --box-edge: #121b23;
 
   --font: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -26,6 +28,7 @@
   --line: #2c3741;
   --signal: #f5c21b;
   --signal-ink: #121b23;
+  --box-edge: transparent;
 
   color-scheme: dark;
 }
@@ -38,6 +41,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Keep keyboard focus clear of the fixed dock (WCAG 2.4.11). */
+  scroll-padding-bottom: 6.5rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {

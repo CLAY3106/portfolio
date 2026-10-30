@@ -89,6 +89,7 @@
   position: absolute;
   inset: -0.1em -0.1em;
   border: 2px solid var(--signal);
+  box-shadow: 0 0 0 1px var(--box-edge);
   opacity: 0;
   transform: scale(0.97);
   transform-origin: left center;
@@ -234,8 +235,15 @@
   transition: opacity 0.2s ease;
 }
 
-.row[data-match="no"] {
-  opacity: 0.4;
+/* Non-matching rows collapse to a quieter heading; colour stays above 4.5:1. */
+.row[data-match="no"] .row-title,
+.row[data-match="no"] .row-summary {
+  color: var(--steel);
+  font-weight: 500;
+}
+
+.row[data-match="no"] .row-panel {
+  grid-template-rows: 0fr;
 }
 
 .row[data-match="yes"]::before {
@@ -246,6 +254,7 @@
   bottom: 0;
   width: 4px;
   background: var(--signal);
+  box-shadow: 0 0 0 1px var(--box-edge);
 }
 
 .row-heading {
@@ -405,7 +414,7 @@
 .skill-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.5rem;
   padding: 0;
   list-style: none;
 }
@@ -758,6 +767,41 @@
 .palette-empty {
   padding: 1rem 0.7rem;
   color: var(--steel);
+}
+
+/* ---------- Touch ---------- */
+/* On touch screens every control gets a 44px target. */
+@media (pointer: coarse) {
+  .link-btn,
+  .chip,
+  .skill,
+  .dock-link,
+  .dock-btn,
+  .dock-filter,
+  .text-btn,
+  .match-link {
+    min-height: 44px;
+  }
+
+  .link-btn,
+  .text-btn,
+  .match-link,
+  .chip,
+  .skill,
+  .dock-filter {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .chip,
+  .skill {
+    padding-inline: 0.8rem;
+  }
+
+  .dock-btn {
+    min-width: 44px;
+    justify-content: center;
+  }
 }
 
 /* ---------- Motion ---------- */
