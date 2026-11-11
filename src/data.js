@@ -175,20 +175,20 @@ export const projects = [
   },
   {
     id: "world-cup",
-    title: "World Cup 2026 Prediction System",
+    title: "World Cup Match Prediction (ELO + Poisson)",
     summary:
-      "Probabilistic bracket forecasting that called the champion, Spain, and 2 of 4 semifinalists.",
+      "A CS486 team project that rates national teams with ELO and predicts match goals with Poisson models.",
     description:
-      "Probabilistic forecasting pipeline in Python cross-validating 3 classification models on historical World Cup match data to simulate bracket outcomes.",
+      "Team project (three students) that predicts World Cup match outcomes from 1930 to 2022 data. ELO ratings feed Poisson and Double Poisson goal models, which are converted into win, draw, and loss probabilities. I built the ELO rating system.",
     highlights: [
-      "Correctly predicted 2 of 4 semifinalists including the eventual champion (Spain)",
-      "Cross-validated 3 classification models on historical match data",
-      "Simulated bracket outcomes with probabilistic forecasting",
+      "Built the ELO rating system: stage weights, margin of victory, and yearly decay toward the baseline",
+      "Grid-searched 256 ELO settings, scoring each by Poisson deviance on the newest 25% of matches",
+      "Turned predicted goal means into win, draw, and loss probabilities",
     ],
     link: null,
     linkLabel: null,
     topics: [],
-    tags: ["Python", "scikit-learn", "Pandas", "Cross-Validation"],
+    tags: ["Python", "scikit-learn", "Pandas", "Poisson Regression", "ELO"],
   },
   {
     id: "football-pipeline",
