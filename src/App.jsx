@@ -341,6 +341,11 @@ export default function App() {
                   ))}
                 </ul>
                 <Chips item={item} filter={filter} onPick={applyFilter} />
+                {item.link && (
+                  <a className="panel-link" href={item.link} target="_blank" rel="noreferrer">
+                    {item.linkLabel}
+                  </a>
+                )}
               </Row>
             ))}
           </ol>

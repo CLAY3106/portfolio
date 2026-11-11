@@ -37,7 +37,9 @@ export const experience = [
     id: "research",
     role: "Undergraduate Researcher, Computer Vision",
     org: "Kalamazoo College, with Dr. Tasnim Gharaibeh (remote)",
-    dates: "Ongoing",
+    dates: "Aug 2026 – Present",
+    link: "https://career.kzoo.edu/2026/10/08/what-research-taught-me-that-a-classroom-couldnt/",
+    linkLabel: "Read the K College feature",
     summary:
       "A two-layer YOLO26 cascade for pipeline defect detection, and the work of catching my own bad numbers.",
     facts: [
